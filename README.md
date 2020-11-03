@@ -7,6 +7,6 @@ Feel free to leave me suggestions or ideas, to make it more fun or advanced
 
 And don't forget to give me feedback on it
 
-ps: also i made it so you can also use shortcuts like,"p" or "3"!
+ps: also i made it so you can use shortcuts like,"p" or "3" instead of "plant"!
 
 Enjoy
