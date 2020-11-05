@@ -1,5 +1,6 @@
 import time
 from random import randint
+import sys
 
 water = ["water", "w", "1"]
 fire = ["fire", "f","2"]
@@ -25,7 +26,7 @@ if want_instructions in yes:
         print("\nOk good\n")
     elif understood in no:
         print("\nRead them again then\n")
-        time.sleep(6)
+        time.sleep(8)
 elif want_instructions in no:
     print("\nok!\n")
 
@@ -34,52 +35,65 @@ number = randint(1,4)
 # game
 
 pick = input("Chose a card! (water, fire, plant or air)\n")
+invalid = ("no")
 
 if number == 1:
     opponent_pick = 1
-    print("\nOpponent chose water!")
+    opponent_result = ("\nOpponent chose water!")
 elif number == 2:
     opponent_pick = 2
-    print("\nOpponent chose fire!")
+    opponent_result = ("\nOpponent chose fire!")
 elif number == 3:
     opponent_pick = 3
-    print("\nOpponent chose plant!")
+    opponent_result = ("\nOpponent chose plant!")
 elif number == 4:
     opponent_pick = 4
-    print("\nOpponent chose air!")
+    opponent_result = ("\nOpponent chose air!")
 
-#  If result is equal
-if pick in water and opponent_pick == 1:
-    result = ("It's equal :/")
-elif pick in fire and opponent_pick == 2:
-    result = ("It's equal :/")
-elif pick in plant and opponent_pick == 3:
-    result = ("It's equal :/")
-elif pick in air and opponent_pick == 4:
-    result = ("It's equal :/")
 
-#  If you win
-if pick in water and opponent_pick == 2:
-    result = ("You win! :D")
-if pick in fire and opponent_pick == 3:
-    result = ("You win! :D")
-if pick in plant and opponent_pick == 4:
-    result = ("You win! :D")
-if pick in air and opponent_pick == 1:
-    result = ("You win! :D")
+equal = ("It's equal :/")
+win = ("You win! :D")
+lost = ("You lost! :(")
 
-#  If you lose
-if pick in water and opponent_pick == 4:
-    result = ("You lose! :(")
-if pick in fire and opponent_pick == 1:
-    result = ("You lose! :(")
-if pick in plant and opponent_pick == 2:
-    result = ("You lose! :(")
-if pick in air and opponent_pick == 3:
-    result = ("You lose! :(")
+if pick.lower() in water and opponent_pick == 1:  #If result is equal
+    result = equal
+elif pick.lower() in fire and opponent_pick == 2:
+    result = equal
+elif pick.lower() in plant and opponent_pick == 3:
+    result = equal
+elif pick.lower() in air and opponent_pick == 4:
+    result = equal
+elif pick.lower() in water and opponent_pick == 2:  #If you win
+    result = win
+elif pick.lower() in fire and opponent_pick == 3:
+    result = win
+elif pick.lower() in plant and opponent_pick == 4:
+    result = win
+elif pick.lower() in air and opponent_pick == 1:
+    result = win
+elif pick.lower() in water and opponent_pick == 4:  #If you lose
+    result = lost
+elif pick.lower() in fire and opponent_pick == 1:
+    result = lost
+elif pick.lower() in plant and opponent_pick == 2:
+    result = lost
+elif pick.lower() in air and opponent_pick == 3:
+    result = lost
+else:
+    invalid = ("yes")
 
-print(result)
-time.sleep(6)
-print("\n(Reopen the file to play again)")
+if invalid in yes:
+    result = ("\n That is not a valid input! :/")
+    print(result)
+    time.sleep(2)
+    print("(if you think this is an error, please report the bug)")
+    time.sleep(2)
+    print("\nReopen the file to play again")
+
+if invalid in no:
+    print(opponent_result)
+    print(result)
+    time.sleep(4)
+    print("\n(Reopen the file to play again)")
 
 input()
