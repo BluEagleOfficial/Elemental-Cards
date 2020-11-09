@@ -3,4 +3,10 @@ _________________________
  Version 0.0.1 alpha
  -the game is not lowercase sensitive anymore
  -if you chose something else it no longer shows an error
- -
+ 
+ Version 0.0.2 alpha
+ -[big change] You can now REPLAY the game WITHOUT reopening the file!
+ -The program closes itself if you say "no",when it asks you if you want to play again
+ -[known bug] Sometimes it says that the input is invalid even tho it is correct (i don't know what causes it,but it will be fixed in the next version)
+ -[small tip] you can just press enter to skip the instructions
+ 
